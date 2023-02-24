@@ -6,19 +6,19 @@ $conn = new Connection;
 class HomeController extends Controller
 {                        
 
+    private $tabConfig = "tabconfig";
+    private $tabTypeProductors = "tabtypeproductors";
+
     public function __construct()
     {        
-        return $this->connectDb();
+        return parent::conecta();
     }
 
     public function home(){ 
         
-        $qr = $this->consulta("SELECT * FROM tabconfig");
-        $dd = $this->resultado($qr);
-        print_r("<pre>");
-        var_dump($dd);
-        print_r("</pre>");
-        Controller::view("home", $dd);        
+        $dd = $this->getById($this->tabTypeProductors, 1); 
+
+        Controller::view("home", ["Name" => $dd['Type']]);        
     }
 
     public function blog(?array $data){

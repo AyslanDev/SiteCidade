@@ -14,7 +14,7 @@ abstract class Conexao{
 
     public function connect()
     {
-
+ 
         try{
             $conexao = new PDO('mysql:host=' . $this->host . ';dbname='. $this->dbName, $this->user, $this->password);
             return $conexao;
