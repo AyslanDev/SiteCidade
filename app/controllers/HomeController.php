@@ -1,18 +1,24 @@
 <?php
 
 namespace app\controllers;
-
+use app\database\Connection;
+$conn = new Connection;
 class HomeController extends Controller
-{    
-    
+{                        
+
     public function __construct()
-    {
-        
+    {        
+        return $this->connectDb();
     }
 
-    public function home(){
-        Controller::view("home");
-        var_dump(Controller::view("home"));
+    public function home(){ 
+        
+        $qr = $this->consulta("SELECT * FROM tabconfig");
+        $dd = $this->resultado($qr);
+        print_r("<pre>");
+        var_dump($dd);
+        print_r("</pre>");
+        Controller::view("home", $dd);        
     }
 
     public function blog(?array $data){

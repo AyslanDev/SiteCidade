@@ -1,5 +1,5 @@
-<?php $this->layout("master") ?>
+<?php $this->layout("master", ['title' => 'Início']); ?>
 
 <h1>
-    entra é peste 
+    Meu nome é <?= $this->e($dd) ?>
 </h1>
